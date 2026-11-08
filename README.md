@@ -18,8 +18,8 @@
 | 编译配置 | `Config/IPQ807X-WIFI-YES.txt` | 新增 `Config/AX6-WIFI-YES.txt`（不动上游文件） |
 | 触发方式 | `Auto-Clean` 每天触发 5 个平台全量编译 | 新增 `CUSTOM-AX6`，**每月 10 / 20 / 月末** 北京时间 21:00 |
 | 默认主题 | `vantage` | **`argon`** |
-| 插件 | 上游默认清单 | **+20 个包**（见第四节） |
-| 体积裁剪 | — | **砍掉 31 个包**（USB / btrfs / samba） |
+| 插件 | 上游默认清单 | **+29 个包**（见第四节） |
+| 体积裁剪 | — | **砍掉 32 个包**（USB / btrfs / samba） |
 | Release 保留 | 每天把 Release 全删 | **当月全留 + 最近 36 个月每月留月末**（约 3 年） |
 | Release 说明 | 上游静态文案 | 自动生成：固件信息 + 两段式插件表（版本 / 上游更新日期） |
 | 运行记录 | 每天全删 | 保留 3 天 |
@@ -67,7 +67,7 @@ qualcommax-ipq807x-redmi_ax6-stock-squashfs-sysupgrade-VIKINGYFY-owrt-WIFI-YES-Y
 
 Release 的 tag 是 `AX6-WIFI-YES-VIKINGYFY-owrt-YY.MM.DD-HH.MM.SS`。
 
-## 四、内置插件（新增 20 个包）
+## 四、内置插件（新增 29 个包）
 
 - luci-theme-argon
 - luci-app-argon-config
@@ -89,13 +89,23 @@ Release 的 tag 是 `AX6-WIFI-YES-VIKINGYFY-owrt-YY.MM.DD-HH.MM.SS`。
 - bash
 - luci-lua-runtime
 - luci-compat
+- luci-app-passwall
+- luci-app-passwall_Nftables_Transparent_Proxy
+- luci-app-passwall_INCLUDE_Xray
+- luci-app-passwall_INCLUDE_Geoview
+- luci-app-ddns
+- ddns-scripts-cloudflare
+- luci-app-frpc
+- luci-app-frps
+- luci-app-uhttpd
 
-### 裁剪掉的包（31 个）
+### 裁剪掉的包（32 个）
 
 AX6 没有 USB 口，且不用 btrfs / samba，全部关闭：
 
 - kmod-fs-btrfs
 - luci-app-samba4
+- luci-app-homeproxy
 - kmod-usb-core
 - kmod-usb-common
 - kmod-usb-dwc3
