@@ -4,9 +4,9 @@
 name: Auto-Clean
 
 on:
-  #自动清理：每周一 04:00（北京时间），只清运行记录，不动 Release / tag
+  #自动清理：每天早上5点
   schedule:
-    - cron: 0 20 * * 1
+    - cron: 21 21 * * *
   #手动清理
   workflow_dispatch:
 
@@ -20,8 +20,8 @@ jobs:
         uses: ophub/delete-releases-workflows@main
         with:
           gh_token: ${{secrets.GITHUB_TOKEN}}
-          delete_releases: false
+          delete_releases: true
           releases_keep_latest: 0
-          delete_tags: false
+          delete_tags: true
           delete_workflows: true
-          workflows_keep_day: 3
+          workflows_keep_day: 0

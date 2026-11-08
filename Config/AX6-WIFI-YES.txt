@@ -1,0 +1,11 @@
+# ============================================================================
+# 由 Custom/bootstrap-fork.sh 生成，请勿手改
+# 只编 redmi_ax6-stock。命名必须保留 -WIFI-YES 后缀（WRT-CORE 从名字提取产物名里的 WIFI 段）
+# ============================================================================
+CONFIG_TARGET_qualcommax=y
+CONFIG_TARGET_qualcommax_ipq807x=y
+CONFIG_TARGET_DEVICE_qualcommax_ipq807x_DEVICE_redmi_ax6-stock=y
+
+# 单机型不需要多 profile / 每设备 rootfs
+# CONFIG_TARGET_MULTI_PROFILE is not set
+# CONFIG_TARGET_PER_DEVICE_ROOTFS is not set
