@@ -19,7 +19,7 @@
 | 触发方式 | `Auto-Clean` 每天触发 5 个平台全量编译 | 新增 `CUSTOM-AX6`，**每月 10 / 20 / 月末** 北京时间 21:00 |
 | 默认主题 | `vantage` | **`argon`** |
 | 插件 | 上游默认清单 | **+29 个包**（见第四节） |
-| 体积裁剪 | — | **砍掉 32 个包**（USB / btrfs / samba） |
+| 体积裁剪 | — | **砍掉 42 个包**（USB / btrfs / samba） |
 | Release 保留 | 每天把 Release 全删 | **当月全留 + 最近 36 个月每月留月末**（约 3 年） |
 | Release 说明 | 上游静态文案 | 自动生成：固件信息 + 两段式插件表（版本 / 上游更新日期） |
 | 运行记录 | 每天全删 | 保留 3 天 |
@@ -99,7 +99,7 @@ Release 的 tag 是 `AX6-WIFI-YES-VIKINGYFY-owrt-YY.MM.DD-HH.MM.SS`。
 - luci-app-frps
 - luci-app-uhttpd
 
-### 裁剪掉的包（32 个）
+### 裁剪掉的包（42 个）
 
 AX6 没有 USB 口，且不用 btrfs / samba，全部关闭：
 
@@ -135,6 +135,16 @@ AX6 没有 USB 口，且不用 btrfs / samba，全部关闭：
 - kmod-usb-storage
 - kmod-usb-storage-extras
 - kmod-usb-storage-uas
+- automount
+- luci-app-mini-diskmanager
+- usb-modeswitch
+- usbmuxd
+- libimobiledevice
+- smartmontools
+- smartmontools-drivedb
+- kmod-fs-ksmbd
+- exfat-fsck
+- exfat-mkfs
 
 > 这些是在 `Config/PRIVATE.txt` 里用 `is not set` 覆盖上游 `Config/GENERAL.txt` 的 `=y`
 > （`Settings.sh` 先 cat GENERAL 再 cat PRIVATE，后写生效）。
