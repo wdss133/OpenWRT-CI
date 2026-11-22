@@ -155,3 +155,20 @@ CONFIG_PACKAGE_luci-app-uhttpd=y
 # exFAT 工具（U 盘用，AX6 无 USB）
 # CONFIG_PACKAGE_exfat-fsck is not set
 # CONFIG_PACKAGE_exfat-mkfs is not set
+
+# ---------------------------------------------------------------------------
+# 第三层：target 的 DEFAULT_PACKAGES
+#
+# 这一层比 CONFIG_PACKAGE_* 更强势：它们由 target/profile 的
+# DEFAULT_PACKAGES 列表注入，符号是 CONFIG_DEFAULT_<pkg>，
+# 会把 PACKAGE_<pkg> 及其依赖整体拉回来（automount 就会拖来
+# kmod-usb-storage* + kmod-fs-btrfs + btrfs-progs）。
+#
+# 实测 .config 里出现这些就说明还堵着：
+#   CONFIG_DEFAULT_kmod-usb3=y / CONFIG_DEFAULT_automount=y
+# ---------------------------------------------------------------------------
+# CONFIG_DEFAULT_automount is not set
+# CONFIG_DEFAULT_kmod-usb3 is not set
+# CONFIG_DEFAULT_kmod-usb-dwc3 is not set
+# CONFIG_DEFAULT_kmod-usb-dwc3-qcom is not set
+# CONFIG_DEFAULT_kmod-usb-serial-qualcomm is not set
